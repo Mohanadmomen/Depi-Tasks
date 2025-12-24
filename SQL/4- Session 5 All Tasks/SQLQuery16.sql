@@ -1,0 +1,312 @@
+-- 1. CUSTOMER SPENDING ANALYSIS 
+
+DECLARE @CustomerID INT = 1;
+DECLARE @TotalSpent DECIMAL(18,2);
+
+SELECT @TotalSpent = SUM(oi.quantity * oi.list_price * (1-oi.discount/100.0))
+FROM sales.order_items oi
+JOIN sales.orders o ON oi.order_id = o.order_id
+WHERE o.customer_id = @CustomerID;
+
+PRINT 'Customer ' + CAST(@CustomerID AS VARCHAR) + ' spent: $' + CAST(@TotalSpent AS VARCHAR);
+
+IF @TotalSpent > 5000
+    PRINT 'VIP Customer';
+ELSE
+    PRINT 'Regular Customer';
+
+-- 2. PRODUCT PRICE THRESHOLD REPORT
+DECLARE @PriceThreshold DECIMAL(10,2) = 1500;
+DECLARE @ProductCount INT;
+
+SELECT @ProductCount = COUNT(*) 
+FROM production.products
+WHERE list_price > @PriceThreshold;
+
+PRINT 'Products above $' + CAST(@PriceThreshold AS VARCHAR) + ': ' + CAST(@ProductCount AS VARCHAR);
+
+-- 3. STAFF PERFORMANCE CALCULATOR
+DECLARE @StaffID INT = 2;
+DECLARE @Year INT = 2017;
+DECLARE @StaffTotal DECIMAL(18,2);
+
+SELECT 
+    @StaffTotal = ISNULL(
+        SUM(oi.quantity * oi.list_price * (1 - oi.discount / 100.0)),
+        0
+    )
+FROM sales.order_items oi
+JOIN sales.orders o ON oi.order_id = o.order_id
+WHERE o.staff_id = @StaffID
+  AND YEAR(o.order_date) = @Year;
+
+PRINT 'Staff ' + CAST(@StaffID AS VARCHAR(10)) +
+      ' total sales in ' + CAST(@Year AS VARCHAR(4)) +
+      ': $' + CAST(@StaffTotal AS VARCHAR(20));
+
+
+-- 4. GLOBAL VARIABLES INFORMATION
+SELECT 
+    @@SERVERNAME AS ServerName,
+    @@VERSION AS SQLVersion,
+    @@ROWCOUNT AS RowsAffectedByLastStatement;
+
+-- 5. CHECK INVENTORY LEVEL
+DECLARE @StoreID INT = 1;
+DECLARE @ProductID INT = 1;
+DECLARE @Qty INT;
+
+SELECT @Qty = quantity
+FROM production.stocks
+WHERE store_id = @StoreID AND product_id = @ProductID;
+
+IF @Qty > 20
+    PRINT 'Well stocked';
+ELSE IF @Qty BETWEEN 10 AND 20
+    PRINT 'Moderate stock';
+ELSE
+    PRINT 'Low stock - reorder needed';
+
+-- 6. LOW-STOCK UPDATE LOOP
+DECLARE @Counter INT = 0;
+DECLARE @BatchSize INT = 3;
+
+WHILE EXISTS (SELECT 1 FROM production.stocks WHERE quantity < 5)
+BEGIN
+    UPDATE TOP (@BatchSize) production.stocks
+    SET quantity = quantity + 10
+    WHERE quantity < 5;
+
+    SET @Counter = @Counter + @BatchSize;
+    PRINT CAST(@Counter AS VARCHAR) + ' low-stock items updated';
+END
+
+-- 7. PRODUCT PRICE CATEGORIZATION
+SELECT 
+    product_id,
+    product_name,
+    list_price,
+    CASE 
+        WHEN list_price < 300 THEN 'Budget'
+        WHEN list_price BETWEEN 300 AND 800 THEN 'Mid-Range'
+        WHEN list_price BETWEEN 801 AND 2000 THEN 'Premium'
+        ELSE 'Luxury'
+    END AS PriceCategory
+FROM production.products;
+
+-- 8. CUSTOMER ORDER VALIDATION
+DECLARE @CheckCustomerID INT = 5;
+DECLARE @OrderCount INT;
+
+IF EXISTS (SELECT 1 FROM sales.customers WHERE customer_id = @CheckCustomerID)
+BEGIN
+    SELECT @OrderCount = COUNT(*) FROM sales.orders WHERE customer_id = @CheckCustomerID;
+    PRINT 'Customer ' + CAST(@CheckCustomerID AS VARCHAR) + ' has ' + CAST(@OrderCount AS VARCHAR) + ' orders';
+END
+ELSE
+    PRINT 'Customer does not exist';
+
+-- 9. SHIPPING COST FUNCTION
+CREATE FUNCTION dbo.CalculateShipping (@OrderTotal DECIMAL(18,2))
+RETURNS DECIMAL(10,2)
+AS
+BEGIN
+    DECLARE @Shipping DECIMAL(10,2);
+
+    IF @OrderTotal > 100
+        SET @Shipping = 0;
+    ELSE IF @OrderTotal BETWEEN 50 AND 99.99
+        SET @Shipping = 5.99;
+    ELSE
+        SET @Shipping = 12.99;
+
+    RETURN @Shipping;
+END;
+GO
+
+-- 10. INLINE TABLE-VALUED FUNCTION: PRODUCTS BY PRICE RANGE
+CREATE FUNCTION dbo.GetProductsByPriceRange (@MinPrice DECIMAL(10,2), @MaxPrice DECIMAL(10,2))
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT p.product_id, p.product_name, p.list_price, b.brand_name, c.category_name
+    FROM production.products p
+    JOIN production.brands b ON p.brand_id = b.brand_id
+    JOIN production.categories c ON p.category_id = c.category_id
+    WHERE p.list_price BETWEEN @MinPrice AND @MaxPrice
+);
+GO
+
+-- 11. Customer Sales Summary Function
+CREATE FUNCTION dbo.GetCustomerYearlySummary(@CustomerID INT)
+RETURNS @Summary TABLE (
+    Year INT,
+    TotalOrders INT,
+    TotalSpent DECIMAL(18,2),
+    AvgOrderValue DECIMAL(18,2)
+)
+AS
+BEGIN
+    INSERT INTO @Summary (Year, TotalOrders, TotalSpent, AvgOrderValue)
+    SELECT 
+        YEAR(o.order_date) AS Year,
+        COUNT(*) AS TotalOrders,
+        SUM(oi.quantity * oi.list_price * (1-oi.discount/100.0)) AS TotalSpent,
+        AVG(oi.quantity * oi.list_price * (1-oi.discount/100.0)) AS AvgOrderValue
+    FROM sales.orders o
+    JOIN sales.order_items oi ON o.order_id = oi.order_id
+    WHERE o.customer_id = @CustomerID
+    GROUP BY YEAR(o.order_date);
+
+    RETURN;
+END;
+GO
+
+-- 12. DISCOUNT FUNCTION
+CREATE FUNCTION dbo.CalculateBulkDiscount(@Qty INT)
+RETURNS INT
+AS
+BEGIN
+    DECLARE @Discount INT;
+
+    IF @Qty BETWEEN 1 AND 2
+        SET @Discount = 0;
+    ELSE IF @Qty BETWEEN 3 AND 5
+        SET @Discount = 5;
+    ELSE IF @Qty BETWEEN 6 AND 9
+        SET @Discount = 10;
+    ELSE
+        SET @Discount = 15;
+
+    RETURN @Discount;
+END;
+GO
+
+
+-- 13. CUSTOMER ORDER HISTORY PROCEDURE
+CREATE PROCEDURE sp_GetCustomerOrderHistory
+    @CustomerID INT,
+    @StartDate DATE = NULL,
+    @EndDate DATE = NULL
+AS
+BEGIN
+    SELECT o.order_id, o.order_date, o.required_date, o.shipped_date,
+           SUM(oi.quantity * oi.list_price * (1-oi.discount/100.0)) AS OrderTotal
+    FROM sales.orders o
+    JOIN sales.order_items oi ON o.order_id = oi.order_id
+    WHERE o.customer_id = @CustomerID
+      AND (@StartDate IS NULL OR o.order_date >= @StartDate)
+      AND (@EndDate IS NULL OR o.order_date <= @EndDate)
+    GROUP BY o.order_id, o.order_date, o.required_date, o.shipped_date
+    ORDER BY o.order_date;
+END;
+GO
+
+-- 14. INVENTORY RESTOCK PROCEDURE
+CREATE PROCEDURE sp_RestockProduct
+    @StoreID INT,
+    @ProductID INT,
+    @RestockQty INT,
+    @OldQty INT OUTPUT,
+    @NewQty INT OUTPUT,
+    @Success BIT OUTPUT
+AS
+BEGIN
+    SELECT @OldQty = quantity
+    FROM production.stocks
+    WHERE store_id = @StoreID AND product_id = @ProductID;
+
+    IF @OldQty IS NULL
+    BEGIN
+        SET @Success = 0;
+        SET @NewQty = NULL;
+    END
+    ELSE
+    BEGIN
+        UPDATE production.stocks
+        SET quantity = quantity + @RestockQty
+        WHERE store_id = @StoreID AND product_id = @ProductID;
+
+        SELECT @NewQty = quantity
+        FROM production.stocks
+        WHERE store_id = @StoreID AND product_id = @ProductID;
+
+        SET @Success = 1;
+    END
+END;
+GO
+
+
+-- 15. ORDER PROCESSING PROCEDURE
+CREATE PROCEDURE sp_ProcessNewOrder
+    @CustomerID INT,
+    @ProductID INT,
+    @Quantity INT,
+    @StoreID INT
+AS
+BEGIN
+    BEGIN TRY
+        BEGIN TRANSACTION;
+
+        DECLARE @StaffID INT;
+        SELECT TOP 1 @StaffID = staff_id FROM sales.staffs WHERE store_id = @StoreID ORDER BY staff_id;
+
+        DECLARE @OrderID INT;
+        INSERT INTO sales.orders (customer_id, order_status, order_date, required_date, store_id, staff_id)
+        VALUES (@CustomerID, 1, GETDATE(), DATEADD(DAY,7,GETDATE()), @StoreID, @StaffID);
+
+        SET @OrderID = SCOPE_IDENTITY();
+
+        INSERT INTO sales.order_items (order_id, item_id, product_id, quantity, list_price, discount)
+        SELECT @OrderID, 1, @ProductID, @Quantity, list_price, 0
+        FROM production.products
+        WHERE product_id = @ProductID;
+
+        UPDATE production.stocks
+        SET quantity = quantity - @Quantity
+        WHERE store_id = @StoreID AND product_id = @ProductID;
+
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRANSACTION;
+        PRINT ERROR_MESSAGE();
+    END CATCH
+END;
+GO
+
+-- 16. DYNAMIC PRODUCT SEARCH PROCEDURE
+CREATE PROCEDURE sp_SearchProducts
+    @NameSearch NVARCHAR(255) = NULL,
+    @CategoryID INT = NULL,
+    @MinPrice DECIMAL(10,2) = NULL,
+    @MaxPrice DECIMAL(10,2) = NULL,
+    @SortColumn NVARCHAR(50) = 'product_name'
+AS
+BEGIN
+    DECLARE @SQL NVARCHAR(MAX);
+    SET @SQL = 'SELECT p.product_id, p.product_name, p.list_price, b.brand_name, c.category_name
+                FROM production.products p
+                JOIN production.brands b ON p.brand_id = b.brand_id
+                JOIN production.categories c ON p.category_id = c.category_id
+                WHERE 1=1';
+
+    IF @NameSearch IS NOT NULL
+        SET @SQL = @SQL + ' AND p.product_name LIKE ''%' + @NameSearch + '%''';
+
+    IF @CategoryID IS NOT NULL
+        SET @SQL = @SQL + ' AND p.category_id = ' + CAST(@CategoryID AS NVARCHAR);
+
+    IF @MinPrice IS NOT NULL
+        SET @SQL = @SQL + ' AND p.list_price >= ' + CAST(@MinPrice AS NVARCHAR);
+
+    IF @MaxPrice IS NOT NULL
+        SET @SQL = @SQL + ' AND p.list_price <= ' + CAST(@MaxPrice AS NVARCHAR);
+
+    SET @SQL = @SQL + ' ORDER BY ' + @SortColumn;
+
+    EXEC sp_executesql @SQL;
+END;
+GO
+--
