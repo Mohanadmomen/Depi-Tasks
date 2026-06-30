@@ -1,0 +1,155 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Depi-R4\\Tasks\\Task 4\\BookStore.Data\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4DD26709-2A01-A218-B35C-70DA46D94345}|BookStore.Data\\BookStore.Data.csproj|d:\\depi-r4\\tasks\\task 4\\bookstore.data\\bookstore.data\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DD26709-2A01-A218-B35C-70DA46D94345}|BookStore.Data\\BookStore.Data.csproj|solutionrelative:bookstore.data\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DD26709-2A01-A218-B35C-70DA46D94345}|BookStore.Data\\BookStore.Data.csproj|d:\\depi-r4\\tasks\\task 4\\bookstore.data\\bookstore.data\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DD26709-2A01-A218-B35C-70DA46D94345}|BookStore.Data\\BookStore.Data.csproj|solutionrelative:bookstore.data\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DD26709-2A01-A218-B35C-70DA46D94345}|BookStore.Data\\BookStore.Data.csproj|d:\\depi-r4\\tasks\\task 4\\bookstore.data\\bookstore.data\\controllers\\admindashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DD26709-2A01-A218-B35C-70DA46D94345}|BookStore.Data\\BookStore.Data.csproj|solutionrelative:bookstore.data\\controllers\\admindashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DD26709-2A01-A218-B35C-70DA46D94345}|BookStore.Data\\BookStore.Data.csproj|d:\\depi-r4\\tasks\\task 4\\bookstore.data\\bookstore.data\\entities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DD26709-2A01-A218-B35C-70DA46D94345}|BookStore.Data\\BookStore.Data.csproj|solutionrelative:bookstore.data\\entities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DD26709-2A01-A218-B35C-70DA46D94345}|BookStore.Data\\BookStore.Data.csproj|d:\\depi-r4\\tasks\\task 4\\bookstore.data\\bookstore.data\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DD26709-2A01-A218-B35C-70DA46D94345}|BookStore.Data\\BookStore.Data.csproj|solutionrelative:bookstore.data\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DD26709-2A01-A218-B35C-70DA46D94345}|BookStore.Data\\BookStore.Data.csproj|d:\\depi-r4\\tasks\\task 4\\bookstore.data\\bookstore.data\\middleware\\exceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DD26709-2A01-A218-B35C-70DA46D94345}|BookStore.Data\\BookStore.Data.csproj|solutionrelative:bookstore.data\\middleware\\exceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DD26709-2A01-A218-B35C-70DA46D94345}|BookStore.Data\\BookStore.Data.csproj|d:\\depi-r4\\tasks\\task 4\\bookstore.data\\bookstore.data\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DD26709-2A01-A218-B35C-70DA46D94345}|BookStore.Data\\BookStore.Data.csproj|solutionrelative:bookstore.data\\controllers\\orderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4DD26709-2A01-A218-B35C-70DA46D94345}|BookStore.Data\\BookStore.Data.csproj|d:\\depi-r4\\tasks\\task 4\\bookstore.data\\bookstore.data\\dtos\\authdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4DD26709-2A01-A218-B35C-70DA46D94345}|BookStore.Data\\BookStore.Data.csproj|solutionrelative:bookstore.data\\dtos\\authdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AdminDashboardController.cs",
+              "DocumentMoniker": "D:\\Depi-R4\\Tasks\\Task 4\\BookStore.Data\\BookStore.Data\\Controllers\\AdminDashboardController.cs",
+              "RelativeDocumentMoniker": "BookStore.Data\\Controllers\\AdminDashboardController.cs",
+              "ToolTip": "D:\\Depi-R4\\Tasks\\Task 4\\BookStore.Data\\BookStore.Data\\Controllers\\AdminDashboardController.cs",
+              "RelativeToolTip": "BookStore.Data\\Controllers\\AdminDashboardController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T14:29:01.266Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "D:\\Depi-R4\\Tasks\\Task 4\\BookStore.Data\\BookStore.Data\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "BookStore.Data\\Services\\AuthService.cs",
+              "ToolTip": "D:\\Depi-R4\\Tasks\\Task 4\\BookStore.Data\\BookStore.Data\\Services\\AuthService.cs",
+              "RelativeToolTip": "BookStore.Data\\Services\\AuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T14:12:08.813Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AuthDtos.cs",
+              "DocumentMoniker": "D:\\Depi-R4\\Tasks\\Task 4\\BookStore.Data\\BookStore.Data\\DTOs\\AuthDtos.cs",
+              "RelativeDocumentMoniker": "BookStore.Data\\DTOs\\AuthDtos.cs",
+              "ToolTip": "D:\\Depi-R4\\Tasks\\Task 4\\BookStore.Data\\BookStore.Data\\DTOs\\AuthDtos.cs",
+              "RelativeToolTip": "BookStore.Data\\DTOs\\AuthDtos.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAuwB4AAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T14:10:14.638Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Depi-R4\\Tasks\\Task 4\\BookStore.Data\\BookStore.Data\\Program.cs",
+              "RelativeDocumentMoniker": "BookStore.Data\\Program.cs",
+              "ToolTip": "D:\\Depi-R4\\Tasks\\Task 4\\BookStore.Data\\BookStore.Data\\Program.cs",
+              "RelativeToolTip": "BookStore.Data\\Program.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T13:58:46.839Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\Depi-R4\\Tasks\\Task 4\\BookStore.Data\\BookStore.Data\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "BookStore.Data\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\Depi-R4\\Tasks\\Task 4\\BookStore.Data\\BookStore.Data\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "BookStore.Data\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAYwDMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T12:05:05.826Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "OrdersController.cs",
+              "DocumentMoniker": "D:\\Depi-R4\\Tasks\\Task 4\\BookStore.Data\\BookStore.Data\\Controllers\\OrdersController.cs",
+              "RelativeDocumentMoniker": "BookStore.Data\\Controllers\\OrdersController.cs",
+              "ToolTip": "D:\\Depi-R4\\Tasks\\Task 4\\BookStore.Data\\BookStore.Data\\Controllers\\OrdersController.cs",
+              "RelativeToolTip": "BookStore.Data\\Controllers\\OrdersController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAwwEgAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T12:08:25.135Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ExceptionMiddleware.cs",
+              "DocumentMoniker": "D:\\Depi-R4\\Tasks\\Task 4\\BookStore.Data\\BookStore.Data\\Middleware\\ExceptionMiddleware.cs",
+              "RelativeDocumentMoniker": "BookStore.Data\\Middleware\\ExceptionMiddleware.cs",
+              "ToolTip": "D:\\Depi-R4\\Tasks\\Task 4\\BookStore.Data\\BookStore.Data\\Middleware\\ExceptionMiddleware.cs",
+              "RelativeToolTip": "BookStore.Data\\Middleware\\ExceptionMiddleware.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T12:07:56.397Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Entities.cs",
+              "DocumentMoniker": "D:\\Depi-R4\\Tasks\\Task 4\\BookStore.Data\\BookStore.Data\\Entities.cs",
+              "RelativeDocumentMoniker": "BookStore.Data\\Entities.cs",
+              "ToolTip": "D:\\Depi-R4\\Tasks\\Task 4\\BookStore.Data\\BookStore.Data\\Entities.cs",
+              "RelativeToolTip": "BookStore.Data\\Entities.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T14:40:25.822Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

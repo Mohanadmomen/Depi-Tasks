@@ -1,0 +1,70 @@
+@model IEnumerable<Showtime>
+@{
+    ViewData["Title"] = "Manage Showtimes";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h1 class="fw-bold text-white mb-1"><i class="bi bi-clock text-primary"></i> Showtime Scheduler</h1>
+        <p class="text-secondary">Schedule movie releases inside cinema halls</p>
+    </div>
+    <a asp-action="Create" class="btn btn-primary"><i class="bi bi-plus-lg"></i> Schedule Session</a>
+</div>
+
+<div class="glass-card p-4">
+    @if (!Model.Any())
+    {
+        <div class="text-center py-4">
+            <p class="text-secondary mb-0">No showtimes scheduled. Click 'Schedule Session' to begin.</p>
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table-custom">
+                <thead>
+                    <tr>
+                        <th>Movie Title</th>
+                        <th>Cinema & Hall</th>
+                        <th>Date & Time</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th class="text-end">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        bool hasStarted = item.StartTime <= DateTime.Now;
+                        <tr>
+                            <td class="text-white fw-semibold">@item.Movie?.Title</td>
+                            <td>
+                                <div class="text-white">@item.Hall?.Cinema?.Name</div>
+                                <small class="text-secondary">@item.Hall?.Name</small>
+                            </td>
+                            <td>
+                                <div class="text-white"><i class="bi bi-calendar-event me-1"></i> @item.StartTime.ToString("yyyy-MM-dd")</div>
+                                <small class="text-secondary">@item.StartTime.ToString("hh:mm tt")</small>
+                            </td>
+                            <td class="text-success fw-bold">@item.Price.ToString("C")</td>
+                            <td>
+                                @if (hasStarted)
+                                {
+                                    <span class="badge badge-custom badge-cancelled">Completed</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-custom badge-active">Active</span>
+                                }
+                            </td>
+                            <td class="text-end">
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-secondary btn-sm me-2"><i class="bi bi-pencil"></i> Edit</a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-primary btn-sm"><i class="bi bi-trash"></i> Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

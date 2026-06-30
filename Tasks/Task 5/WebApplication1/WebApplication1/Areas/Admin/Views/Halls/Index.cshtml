@@ -1,0 +1,50 @@
+@model IEnumerable<Hall>
+@{
+    ViewData["Title"] = "Manage Halls";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h1 class="fw-bold text-white mb-1"><i class="bi bi-columns-gap text-primary"></i> Hall Manager</h1>
+        <p class="text-secondary">Configure seating halls inside cinemas</p>
+    </div>
+    <a asp-action="Create" class="btn btn-primary"><i class="bi bi-plus-lg"></i> Add Hall</a>
+</div>
+
+<div class="glass-card p-4">
+    @if (!Model.Any())
+    {
+        <div class="text-center py-4">
+            <p class="text-secondary mb-0">No screening halls registered. Click 'Add Hall' to begin.</p>
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table-custom">
+                <thead>
+                    <tr>
+                        <th>Hall Name</th>
+                        <th>Cinema</th>
+                        <th>Seating Capacity</th>
+                        <th class="text-end">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="text-white fw-semibold">@item.Name</td>
+                            <td class="text-secondary">@item.Cinema?.Name</td>
+                            <td class="text-info fw-bold">@item.Capacity seats</td>
+                            <td class="text-end">
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-secondary btn-sm me-2"><i class="bi bi-pencil"></i> Edit</a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-primary btn-sm"><i class="bi bi-trash"></i> Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

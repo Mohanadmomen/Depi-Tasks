@@ -1,0 +1,126 @@
+@model Movie
+@{
+    ViewData["Title"] = Model.Title;
+    var bookedSeatsDict = ViewBag.BookedSeats as Dictionary<int, int> ?? new Dictionary<int, int>();
+}
+
+<!-- Breadcrumbs -->
+<nav aria-label="breadcrumb" class="mb-4">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-action="Index" class="text-secondary text-decoration-none">Home</a></li>
+        <li class="breadcrumb-item"><a asp-action="Movies" class="text-secondary text-decoration-none">Movies</a></li>
+        <li class="breadcrumb-item active text-white" aria-current="page">@Model.Title</li>
+    </ol>
+</nav>
+
+<div class="row g-5 mb-5">
+    <!-- Movie Poster -->
+    <div class="col-md-4">
+        <div class="glass-card overflow-hidden" style="border-radius: 16px;">
+            @if (!string.IsNullOrEmpty(Model.PosterUrl))
+            {
+                <img src="@Model.PosterUrl" class="w-100 object-fit-cover" style="aspect-ratio: 2/3;" alt="@Model.Title Poster" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            }
+            <div class="movie-poster-placeholder" style="display: @(string.IsNullOrEmpty(Model.PosterUrl) ? "flex" : "none"); aspect-ratio: 2/3;">
+                <i class="bi bi-film fs-1 mb-2 text-danger"></i>
+                <span class="fw-bold fs-5 text-white">@Model.Title</span>
+                <small class="text-muted">No Poster Available</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Movie Details -->
+    <div class="col-md-8">
+        <div class="d-flex flex-wrap gap-2 mb-3">
+            <span class="movie-badge">@Model.Category?.Name</span>
+            <span class="badge bg-secondary py-2 px-3"><i class="bi bi-clock-history"></i> @Model.DurationMinutes min</span>
+            <span class="badge bg-secondary py-2 px-3"><i class="bi bi-calendar3"></i> Released: @Model.ReleaseDate.ToString("MMMM dd, yyyy")</span>
+        </div>
+        
+        <h1 class="display-4 fw-bold text-white mb-3">@Model.Title</h1>
+        
+        <h5 class="fw-bold text-secondary mb-2">Synopsis</h5>
+        <p class="text-light fs-5 lh-base mb-5">@Model.Description</p>
+
+        <!-- Showtimes List -->
+        <div>
+            <h3 class="fw-bold text-white mb-4"><i class="bi bi-ticket-perforated text-danger"></i> Upcoming Showtimes</h3>
+
+            @if (!Model.Showtimes.Any())
+            {
+                <div class="glass-card p-4 text-center">
+                    <i class="bi bi-calendar-x text-muted fs-2 mb-2"></i>
+                    <h5 class="text-white mb-1">No Showtimes Available</h5>
+                    <p class="text-secondary mb-0">There are no upcoming sessions currently scheduled for this movie.</p>
+                </div>
+            }
+            else
+            {
+                var groupedShowtimes = Model.Showtimes.GroupBy(s => s.Hall?.Cinema);
+
+                foreach (var group in groupedShowtimes)
+                {
+                    var cinema = group.Key;
+                    if (cinema == null) continue;
+
+                    <div class="glass-card p-4 mb-4" style="background-color: rgba(255, 255, 255, 0.02);">
+                        <h5 class="fw-bold text-white mb-3"><i class="bi bi-building text-primary me-2"></i> @cinema.Name</h5>
+                        <p class="text-secondary small mb-3"><i class="bi bi-geo-alt"></i> @cinema.Location</p>
+                        
+                        <div class="row row-cols-1 row-cols-md-2 g-3">
+                            @foreach (var showtime in group)
+                            {
+                                int booked = bookedSeatsDict.ContainsKey(showtime.Id) ? bookedSeatsDict[showtime.Id] : 0;
+                                int remaining = (showtime.Hall?.Capacity ?? 0) - booked;
+                                bool isSoldOut = remaining <= 0;
+
+                                <div class="col">
+                                    <div class="glass-card p-3 d-flex justify-content-between align-items-center" style="background-color: rgba(15, 22, 42, 0.5);">
+                                        <div>
+                                            <div class="fw-bold text-white mb-1">
+                                                <i class="bi bi-calendar-event text-secondary me-1"></i> @showtime.StartTime.ToString("ddd, MMM dd - h:mm tt")
+                                            </div>
+                                            <div class="text-secondary small mb-1">
+                                                <i class="bi bi-columns-gap me-1"></i> @showtime.Hall?.Name
+                                            </div>
+                                            <div class="text-success small fw-semibold">
+                                                <i class="bi bi-cash me-1"></i> @showtime.Price.ToString("C")
+                                            </div>
+                                            <div class="mt-2">
+                                                @if (isSoldOut)
+                                                {
+                                                    <span class="badge badge-custom badge-cancelled">Sold Out</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge badge-custom badge-active">@remaining seats left</span>
+                                                }
+                                            </div>
+                                        </div>
+                                        <div>
+                                            @if (isSoldOut)
+                                            {
+                                                <button class="btn btn-secondary btn-sm" disabled>Sold Out</button>
+                                            }
+                                            else
+                                            {
+                                                if (User.Identity?.IsAuthenticated == true)
+                                                {
+                                                    <a asp-controller="Booking" asp-action="Book" asp-route-showtimeId="@showtime.Id" class="btn btn-primary btn-sm">Book Tickets</a>
+                                                }
+                                                else
+                                                {
+                                                    <a asp-controller="Account" asp-action="Login" asp-route-returnUrl="@Url.Action("MovieDetails", "Home", new { id = Model.Id })" class="btn btn-primary btn-sm">Log in to Book</a>
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>

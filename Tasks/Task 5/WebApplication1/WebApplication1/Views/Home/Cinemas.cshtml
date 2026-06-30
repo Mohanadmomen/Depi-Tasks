@@ -1,0 +1,62 @@
+@model IEnumerable<Cinema>
+@{
+    ViewData["Title"] = "Our Cinemas";
+}
+
+<div class="mb-4">
+    <h1 class="fw-bold text-white mb-1">Our Cinemas</h1>
+    <p class="text-secondary">Explore all our theaters and screening halls</p>
+</div>
+
+@if (!Model.Any())
+{
+    <div class="glass-card p-5 text-center">
+        <i class="bi bi-building-exclamation text-muted fs-1 mb-3"></i>
+        <h3 class="text-white">No Cinemas Found</h3>
+        <p class="text-secondary">Please check back later or seed the database.</p>
+    </div>
+}
+else
+{
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        @foreach (var cinema in Model)
+        {
+            <div class="col">
+                <div class="glass-card p-4 h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="fs-2 text-primary"><i class="bi bi-building"></i></div>
+                            <div>
+                                <h3 class="fw-bold text-white mb-0">@cinema.Name</h3>
+                                <small class="text-secondary"><i class="bi bi-geo-alt"></i> @cinema.Location</small>
+                            </div>
+                        </div>
+                        
+                        <hr class="border-secondary my-3">
+                        
+                        <h6 class="fw-bold text-white mb-3"><i class="bi bi-columns-gap text-secondary me-2"></i> Screening Halls</h6>
+                        
+                        @if (!cinema.Halls.Any())
+                        {
+                            <p class="text-muted small">No halls registered in this cinema.</p>
+                        }
+                        else
+                        {
+                            <ul class="list-group list-group-flush bg-transparent">
+                                @foreach (var hall in cinema.Halls)
+                                {
+                                    <li class="list-group-item bg-transparent text-light border-secondary px-0 d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <i class="bi bi-chevron-right text-primary me-2"></i> @hall.Name
+                                        </div>
+                                        <span class="badge badge-custom badge-active">@hall.Capacity seats capacity</span>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

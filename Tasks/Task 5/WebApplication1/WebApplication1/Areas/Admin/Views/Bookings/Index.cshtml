@@ -1,0 +1,85 @@
+@model IEnumerable<Booking>
+@{
+    ViewData["Title"] = "System Bookings";
+}
+
+<div class="mb-4">
+    <h1 class="fw-bold text-white mb-1"><i class="bi bi-ticket-perforated text-primary"></i> System Bookings</h1>
+    <p class="text-secondary">Monitor all customer orders and tickets across the booking network</p>
+</div>
+
+<div class="glass-card p-4">
+    @if (!Model.Any())
+    {
+        <div class="text-center py-4">
+            <p class="text-secondary mb-0">No bookings have been made yet in the system.</p>
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table-custom">
+                <thead>
+                    <tr>
+                        <th>Customer</th>
+                        <th>Movie Title</th>
+                        <th>Showtime Details</th>
+                        <th>Seats</th>
+                        <th>Total Paid</th>
+                        <th>Status</th>
+                        <th class="text-end">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var booking in Model)
+                    {
+                        bool isPast = booking.Showtime?.StartTime <= DateTime.Now;
+                        <tr>
+                            <td>
+                                <div class="fw-bold text-white">@booking.User?.FullName</div>
+                                <small class="text-secondary">@booking.User?.Email</small>
+                            </td>
+                            <td>
+                                <div class="text-white fw-medium">@booking.Showtime?.Movie?.Title</div>
+                                <small class="text-secondary">@booking.Showtime?.Hall?.Cinema?.Name</small>
+                            </td>
+                            <td>
+                                <div class="text-white">@booking.Showtime?.StartTime.ToString("yyyy-MM-dd")</div>
+                                <small class="text-secondary">@booking.Showtime?.StartTime.ToString("hh:mm tt") - @booking.Showtime?.Hall?.Name</small>
+                            </td>
+                            <td class="text-white fw-bold">@booking.SeatsBooked</td>
+                            <td class="text-success fw-bold">@booking.TotalPrice.ToString("C")</td>
+                            <td>
+                                @if (booking.IsCancelled)
+                                {
+                                    <span class="badge badge-custom badge-cancelled">Cancelled</span>
+                                }
+                                else if (isPast)
+                                {
+                                    <span class="badge badge-custom badge-active">Completed</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-custom badge-active">Active</span>
+                                }
+                            </td>
+                            <td class="text-end">
+                                @if (!booking.IsCancelled && !isPast)
+                                {
+                                    <form asp-action="CancelBooking" method="post" onsubmit="return confirm('Are you sure you want to cancel this booking as Administrator?');" class="d-inline">
+                                        <input type="hidden" name="bookingId" value="@booking.Id" />
+                                        <button type="submit" class="btn btn-outline-primary btn-sm"><i class="bi bi-slash-circle"></i> Cancel Order</button>
+                                    </form>
+                                }
+                                else
+                                {
+                                    <button class="btn btn-secondary btn-sm" disabled><i class="bi bi-dash-circle"></i> No Action</button>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

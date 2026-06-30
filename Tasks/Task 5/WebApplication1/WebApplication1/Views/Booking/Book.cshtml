@@ -1,0 +1,107 @@
+@model Booking
+@{
+    ViewData["Title"] = "Book Tickets";
+    var availableSeats = (int)ViewBag.AvailableSeats;
+}
+
+<div class="row justify-content-center mt-4">
+    <div class="col-lg-8">
+        <div class="glass-card p-5">
+            <div class="d-flex align-items-center gap-3 mb-4">
+                <a asp-controller="Home" asp-action="MovieDetails" asp-route-id="@Model.Showtime?.MovieId" class="btn btn-secondary btn-sm py-2"><i class="bi bi-arrow-left"></i> Back</a>
+                <h2 class="fw-bold text-white mb-0">Ticket Booking</h2>
+            </div>
+
+            <div class="row g-4">
+                <!-- Showtime Info Column -->
+                <div class="col-md-6">
+                    <div class="p-4 rounded-3 h-100" style="background-color: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-glass);">
+                        <span class="badge badge-custom badge-active mb-3"><i class="bi bi-tv"></i> Showtime Details</span>
+                        <h4 class="fw-bold text-white mb-2">@Model.Showtime?.Movie?.Title</h4>
+                        <p class="text-secondary mb-3"><i class="bi bi-clock"></i> @Model.Showtime?.Movie?.DurationMinutes min</p>
+
+                        <div class="mb-2 text-light">
+                            <strong class="text-secondary">Cinema:</strong> @Model.Showtime?.Hall?.Cinema?.Name
+                        </div>
+                        <div class="mb-2 text-light">
+                            <strong class="text-secondary">Hall:</strong> @Model.Showtime?.Hall?.Name
+                        </div>
+                        <div class="mb-2 text-light">
+                            <strong class="text-secondary">Date & Time:</strong> @Model.Showtime?.StartTime.ToString("dddd, MMMM dd, yyyy - h:mm tt")
+                        </div>
+                        <div class="mb-2 text-light">
+                            <strong class="text-secondary">Ticket Price:</strong> <span class="text-success fw-bold">@Model.Showtime?.Price.ToString("C")</span>
+                        </div>
+                        <div class="mb-0 text-light">
+                            <strong class="text-secondary">Seats Available:</strong> <span class="text-info fw-bold">@availableSeats</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Booking Actions Form Column -->
+                <div class="col-md-6">
+                    <form asp-action="Book" method="post" class="d-flex flex-column justify-content-between h-100">
+                        <input type="hidden" asp-for="ShowtimeId" />
+
+                        <div>
+                            <div class="mb-4">
+                                <label asp-for="SeatsBooked" class="form-label">Number of Seats</label>
+                                <input asp-for="SeatsBooked" type="number" class="form-control text-center fs-4 fw-bold" 
+                                       min="1" max="@Math.Min(10, availableSeats)" value="1" id="seats-input" />
+                                <span asp-validation-for="SeatsBooked" class="text-danger"></span>
+                                <small class="text-muted d-block mt-2">Maximum 10 seats allowed per booking.</small>
+                            </div>
+
+                            <!-- Live Price Summary Card -->
+                            <div class="p-4 rounded-3 mb-4" style="background-color: rgba(99, 102, 241, 0.05); border: 1px dashed rgba(99, 102, 241, 0.3);">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="text-secondary fw-medium">Unit Price</span>
+                                    <span class="text-white fw-bold">@Model.Showtime?.Price.ToString("C")</span>
+                                </div>
+                                <hr class="border-secondary my-2">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="text-white fw-bold">Total Price</span>
+                                    <span class="text-success fs-3 fw-extrabold" id="total-price-display">@Model.Showtime?.Price.ToString("C")</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 py-3"><i class="bi bi-ticket-perforated"></i> Confirm Booking</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Seat Layout Mockup for Visual Quality -->
+            <div class="mt-5 text-center">
+                <hr class="border-secondary mb-4">
+                <h6 class="text-secondary fw-bold mb-3">SEATING GRAPHIC</h6>
+                <div class="seat-map-container">
+                    <div class="screen-indicator"></div>
+                    <div class="text-secondary small">Screen this way</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const seatsInput = document.getElementById("seats-input");
+            const priceDisplay = document.getElementById("total-price-display");
+            const unitPrice = parseFloat("@Model.Showtime?.Price");
+
+            function updatePrice() {
+                let qty = parseInt(seatsInput.value) || 0;
+                let total = qty * unitPrice;
+                // Format as currency (USD / local format)
+                priceDisplay.textContent = total.toLocaleString("en-US", { style: "currency", currency: "USD" });
+            }
+
+            seatsInput.addEventListener("input", updatePrice);
+            seatsInput.addEventListener("change", updatePrice);
+        });
+    </script>
+}

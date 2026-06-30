@@ -1,0 +1,14 @@
+D:\Depi-R4\Tasks\Task 2\BookStore.ConsoleApp\BookStore.ConsoleApp\bin\Debug\net10.0\BookStore.ConsoleApp.exe
+D:\Depi-R4\Tasks\Task 2\BookStore.ConsoleApp\BookStore.ConsoleApp\bin\Debug\net10.0\BookStore.ConsoleApp.deps.json
+D:\Depi-R4\Tasks\Task 2\BookStore.ConsoleApp\BookStore.ConsoleApp\bin\Debug\net10.0\BookStore.ConsoleApp.runtimeconfig.json
+D:\Depi-R4\Tasks\Task 2\BookStore.ConsoleApp\BookStore.ConsoleApp\bin\Debug\net10.0\BookStore.ConsoleApp.dll
+D:\Depi-R4\Tasks\Task 2\BookStore.ConsoleApp\BookStore.ConsoleApp\bin\Debug\net10.0\BookStore.ConsoleApp.pdb
+D:\Depi-R4\Tasks\Task 2\BookStore.ConsoleApp\BookStore.ConsoleApp\obj\Debug\net10.0\BookStore.ConsoleApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\Depi-R4\Tasks\Task 2\BookStore.ConsoleApp\BookStore.ConsoleApp\obj\Debug\net10.0\BookStore.ConsoleApp.AssemblyInfoInputs.cache
+D:\Depi-R4\Tasks\Task 2\BookStore.ConsoleApp\BookStore.ConsoleApp\obj\Debug\net10.0\BookStore.ConsoleApp.AssemblyInfo.cs
+D:\Depi-R4\Tasks\Task 2\BookStore.ConsoleApp\BookStore.ConsoleApp\obj\Debug\net10.0\BookStore.ConsoleApp.csproj.CoreCompileInputs.cache
+D:\Depi-R4\Tasks\Task 2\BookStore.ConsoleApp\BookStore.ConsoleApp\obj\Debug\net10.0\BookStore.ConsoleApp.dll
+D:\Depi-R4\Tasks\Task 2\BookStore.ConsoleApp\BookStore.ConsoleApp\obj\Debug\net10.0\refint\BookStore.ConsoleApp.dll
+D:\Depi-R4\Tasks\Task 2\BookStore.ConsoleApp\BookStore.ConsoleApp\obj\Debug\net10.0\BookStore.ConsoleApp.pdb
+D:\Depi-R4\Tasks\Task 2\BookStore.ConsoleApp\BookStore.ConsoleApp\obj\Debug\net10.0\BookStore.ConsoleApp.genruntimeconfig.cache
+D:\Depi-R4\Tasks\Task 2\BookStore.ConsoleApp\BookStore.ConsoleApp\obj\Debug\net10.0\ref\BookStore.ConsoleApp.dll

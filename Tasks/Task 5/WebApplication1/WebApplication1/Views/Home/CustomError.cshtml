@@ -1,0 +1,30 @@
+@{
+    ViewData["Title"] = ViewData["ErrorMessage"] ?? "Error";
+    var code = ViewData["ErrorCode"]?.ToString() ?? "Error";
+}
+
+<div class="row justify-content-center align-items-center min-vh-75 mt-5">
+    <div class="col-md-7 text-center">
+        <div class="glass-card p-5 border-danger-subtle">
+            @if (code == "404")
+            {
+                <i class="bi bi-patch-question text-warning" style="font-size: 5rem;"></i>
+            }
+            else
+            {
+                <i class="bi bi-exclamation-octagon text-danger" style="font-size: 5rem;"></i>
+            }
+            
+            <h1 class="display-3 fw-bold text-white mt-4">@code</h1>
+            <h2 class="fw-bold text-light mb-3">@ViewData["ErrorMessage"]</h2>
+            <p class="text-secondary fs-5 col-md-10 mx-auto">@ViewData["ErrorDetails"]</p>
+            
+            <hr class="border-secondary my-4">
+            
+            <div class="d-flex justify-content-center gap-3">
+                <a asp-controller="Home" asp-action="Index" class="btn btn-primary py-2 px-4">Back to Home</a>
+                <a asp-action="Movies" class="btn btn-secondary py-2 px-4">Browse Movies</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+@model Showtime
+@{
+    ViewData["Title"] = "Delete Showtime";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+        <div class="glass-card p-5 border-danger-subtle">
+            <h2 class="fw-bold text-white mb-3"><i class="bi bi-exclamation-triangle text-danger"></i> Delete Showtime</h2>
+            <p class="text-secondary fs-5">Are you sure you want to permanently delete this showtime session?</p>
+            
+            <div class="p-3 mb-4 rounded bg-dark border border-secondary">
+                <div class="text-white fw-bold mb-1">@Model.Movie?.Title</div>
+                <div class="text-secondary small mb-1"><i class="bi bi-building"></i> @Model.Hall?.Cinema?.Name - @Model.Hall?.Name</div>
+                <div class="text-secondary small"><i class="bi bi-clock"></i> @Model.StartTime.ToString("f")</div>
+            </div>
+
+            <p class="text-danger small mb-4"><i class="bi bi-info-circle"></i> Warning: Deleting this showtime will delete all user tickets booked for this session.</p>
+            
+            <form asp-action="Delete" method="post">
+                <input type="hidden" asp-for="Id" />
+                <div class="d-flex gap-3">
+                    <button type="submit" class="btn btn-primary px-4">Delete Showtime</button>
+                    <a asp-action="Index" class="btn btn-secondary px-4">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

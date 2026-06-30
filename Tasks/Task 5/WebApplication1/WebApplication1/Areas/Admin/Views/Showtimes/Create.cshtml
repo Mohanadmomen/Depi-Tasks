@@ -1,0 +1,55 @@
+@model Showtime
+@{
+    ViewData["Title"] = "Schedule Showtime";
+}
+
+<div class="row justify-content-center mt-4">
+    <div class="col-md-7">
+        <div class="glass-card p-5">
+            <h2 class="fw-bold text-white mb-4"><i class="bi bi-clock text-primary"></i> Schedule Showtime</h2>
+            
+            <form asp-action="Create" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="mb-3">
+                    <label asp-for="MovieId" class="form-label">Select Movie</label>
+                    <select asp-for="MovieId" class="form-select bg-dark border-secondary text-white" asp-items="ViewBag.Movies">
+                        <option value="">-- Select Movie --</option>
+                    </select>
+                    <span asp-validation-for="MovieId" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="HallId" class="form-label">Select Cinema & Hall</label>
+                    <select asp-for="HallId" class="form-select bg-dark border-secondary text-white" asp-items="ViewBag.Halls">
+                        <option value="">-- Select Location --</option>
+                    </select>
+                    <span asp-validation-for="HallId" class="text-danger"></span>
+                </div>
+
+                <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                        <label asp-for="StartTime" class="form-label">Start Date & Time</label>
+                        <input asp-for="StartTime" class="form-control" type="datetime-local" value="@DateTime.Now.AddDays(1).ToString("yyyy-MM-ddTHH:mm")" />
+                        <span asp-validation-for="StartTime" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label asp-for="Price" class="form-label">Ticket Price ($)</label>
+                        <input asp-for="Price" class="form-control" type="number" step="0.01" placeholder="e.g. 15.00" />
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="d-flex gap-3">
+                    <button type="submit" class="btn btn-primary px-4">Save Session</button>
+                    <a asp-action="Index" class="btn btn-secondary px-4">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

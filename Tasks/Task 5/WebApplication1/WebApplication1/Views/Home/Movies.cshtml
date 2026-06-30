@@ -1,0 +1,65 @@
+@model IEnumerable<Movie>
+@{
+    ViewData["Title"] = "Movies Catalog";
+    var categories = ViewData["Categories"] as IEnumerable<Category> ?? new List<Category>();
+    var selectedCategory = ViewData["SelectedCategory"] as int?;
+}
+
+<div class="mb-4">
+    <h1 class="fw-bold text-white mb-1">Movies Catalog</h1>
+    <p class="text-secondary">Explore all our movies playing in theaters right now</p>
+</div>
+
+<!-- Category Filters -->
+<div class="d-flex flex-wrap gap-2 mb-5">
+    <a asp-action="Movies" asp-route-categoryId="" 
+       class="btn btn-sm @(!selectedCategory.HasValue ? "btn-primary" : "btn-secondary") py-2 px-3">
+        All Genres
+    </a>
+    @foreach (var cat in categories)
+    {
+        <a asp-action="Movies" asp-route-categoryId="@cat.Id" 
+           class="btn btn-sm @(selectedCategory.HasValue && selectedCategory.Value == cat.Id ? "btn-primary" : "btn-secondary") py-2 px-3">
+            @cat.Name
+        </a>
+    }
+</div>
+
+@if (!Model.Any())
+{
+    <div class="glass-card p-5 text-center my-4">
+        <i class="bi bi-search text-muted fs-1 mb-3"></i>
+        <h3 class="text-white">No Movies Found</h3>
+        <p class="text-secondary">We couldn't find any movies playing under this genre.</p>
+        <a asp-action="Movies" asp-route-categoryId="" class="btn btn-primary mt-3">Reset Filter</a>
+    </div>
+}
+else
+{
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+        @foreach (var movie in Model)
+        {
+            <div class="col">
+                <div class="glass-card movie-card">
+                    <div class="movie-poster-wrapper">
+                        @if (!string.IsNullOrEmpty(movie.PosterUrl))
+                        {
+                            <img src="@movie.PosterUrl" class="movie-poster-img" alt="@movie.Title Poster" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                        }
+                        <div class="movie-poster-placeholder" style="display: @(string.IsNullOrEmpty(movie.PosterUrl) ? "flex" : "none");">
+                            <i class="bi bi-film fs-1 mb-2 text-danger"></i>
+                            <span class="fw-bold fs-5 text-white">@movie.Title</span>
+                            <small class="text-muted mt-1">No Poster Available</small>
+                        </div>
+                        <div class="movie-card-overlay">
+                            <span class="movie-badge mb-2">@movie.Category?.Name</span>
+                            <h5 class="fw-bold text-white mb-1">@movie.Title</h5>
+                            <p class="text-secondary small mb-3"><i class="bi bi-clock"></i> @movie.DurationMinutes min</p>
+                            <a asp-action="MovieDetails" asp-route-id="@movie.Id" class="btn btn-primary w-100 py-2">Get Tickets</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

@@ -1,0 +1,18 @@
+@{
+    ViewData["Title"] = "Access Denied";
+}
+
+<div class="row justify-content-center align-items-center min-vh-75 mt-5">
+    <div class="col-md-6 text-center">
+        <div class="glass-card p-5">
+            <i class="bi bi-shield-slash-fill text-danger" style="font-size: 5rem;"></i>
+            <h1 class="fw-bold mt-4 text-white">403 - Forbidden</h1>
+            <p class="text-secondary fs-5 mt-2">You do not have administrative privileges to access this restricted page.</p>
+            <hr class="border-secondary my-4">
+            <div class="d-flex justify-content-center gap-3">
+                <a asp-controller="Home" asp-action="Index" class="btn btn-primary py-2 px-4">Go to Home</a>
+                <a asp-controller="Account" asp-action="Login" class="btn btn-secondary py-2 px-4">Sign in as Admin</a>
+            </div>
+        </div>
+    </div>
+</div>

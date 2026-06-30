@@ -1,0 +1,37 @@
+@model Cinema
+@{
+    ViewData["Title"] = "Add Cinema";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+        <div class="glass-card p-5">
+            <h2 class="fw-bold text-white mb-4"><i class="bi bi-building text-primary"></i> Add Cinema</h2>
+            
+            <form asp-action="Create" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label">Cinema Name</label>
+                    <input asp-for="Name" class="form-control" placeholder="e.g. Grand Horizon Cinema" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="mb-4">
+                    <label asp-for="Location" class="form-label">Location Address</label>
+                    <input asp-for="Location" class="form-control" placeholder="e.g. 789 North Avenue, Suite 10" />
+                    <span asp-validation-for="Location" class="text-danger"></span>
+                </div>
+
+                <div class="d-flex gap-3">
+                    <button type="submit" class="btn btn-primary px-4">Save Cinema</button>
+                    <a asp-action="Index" class="btn btn-secondary px-4">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

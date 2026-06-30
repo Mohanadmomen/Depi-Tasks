@@ -1,0 +1,224 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Depi-R4\\Tasks\\Task 2\\BookStore.ConsoleApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{96D7F2D3-A4B0-472E-9875-66AFD7D924E6}|BookStore.ConsoleApp\\BookStore.ConsoleApp.csproj|d:\\depi-r4\\tasks\\task 2\\bookstore.consoleapp\\bookstore.consoleapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96D7F2D3-A4B0-472E-9875-66AFD7D924E6}|BookStore.ConsoleApp\\BookStore.ConsoleApp.csproj|solutionrelative:bookstore.consoleapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96D7F2D3-A4B0-472E-9875-66AFD7D924E6}|BookStore.ConsoleApp\\BookStore.ConsoleApp.csproj|d:\\depi-r4\\tasks\\task 2\\bookstore.consoleapp\\bookstore.consoleapp\\services\\inputvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96D7F2D3-A4B0-472E-9875-66AFD7D924E6}|BookStore.ConsoleApp\\BookStore.ConsoleApp.csproj|solutionrelative:bookstore.consoleapp\\services\\inputvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96D7F2D3-A4B0-472E-9875-66AFD7D924E6}|BookStore.ConsoleApp\\BookStore.ConsoleApp.csproj|d:\\depi-r4\\tasks\\task 2\\bookstore.consoleapp\\bookstore.consoleapp\\services\\bookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96D7F2D3-A4B0-472E-9875-66AFD7D924E6}|BookStore.ConsoleApp\\BookStore.ConsoleApp.csproj|solutionrelative:bookstore.consoleapp\\services\\bookservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96D7F2D3-A4B0-472E-9875-66AFD7D924E6}|BookStore.ConsoleApp\\BookStore.ConsoleApp.csproj|d:\\depi-r4\\tasks\\task 2\\bookstore.consoleapp\\bookstore.consoleapp\\services\\stockmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96D7F2D3-A4B0-472E-9875-66AFD7D924E6}|BookStore.ConsoleApp\\BookStore.ConsoleApp.csproj|solutionrelative:bookstore.consoleapp\\services\\stockmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96D7F2D3-A4B0-472E-9875-66AFD7D924E6}|BookStore.ConsoleApp\\BookStore.ConsoleApp.csproj|d:\\depi-r4\\tasks\\task 2\\bookstore.consoleapp\\bookstore.consoleapp\\repositories\\inmemoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96D7F2D3-A4B0-472E-9875-66AFD7D924E6}|BookStore.ConsoleApp\\BookStore.ConsoleApp.csproj|solutionrelative:bookstore.consoleapp\\repositories\\inmemoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96D7F2D3-A4B0-472E-9875-66AFD7D924E6}|BookStore.ConsoleApp\\BookStore.ConsoleApp.csproj|d:\\depi-r4\\tasks\\task 2\\bookstore.consoleapp\\bookstore.consoleapp\\models\\purchase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96D7F2D3-A4B0-472E-9875-66AFD7D924E6}|BookStore.ConsoleApp\\BookStore.ConsoleApp.csproj|solutionrelative:bookstore.consoleapp\\models\\purchase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96D7F2D3-A4B0-472E-9875-66AFD7D924E6}|BookStore.ConsoleApp\\BookStore.ConsoleApp.csproj|d:\\depi-r4\\tasks\\task 2\\bookstore.consoleapp\\bookstore.consoleapp\\models\\purchaseitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96D7F2D3-A4B0-472E-9875-66AFD7D924E6}|BookStore.ConsoleApp\\BookStore.ConsoleApp.csproj|solutionrelative:bookstore.consoleapp\\models\\purchaseitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96D7F2D3-A4B0-472E-9875-66AFD7D924E6}|BookStore.ConsoleApp\\BookStore.ConsoleApp.csproj|d:\\depi-r4\\tasks\\task 2\\bookstore.consoleapp\\bookstore.consoleapp\\models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96D7F2D3-A4B0-472E-9875-66AFD7D924E6}|BookStore.ConsoleApp\\BookStore.ConsoleApp.csproj|solutionrelative:bookstore.consoleapp\\models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96D7F2D3-A4B0-472E-9875-66AFD7D924E6}|BookStore.ConsoleApp\\BookStore.ConsoleApp.csproj|d:\\depi-r4\\tasks\\task 2\\bookstore.consoleapp\\bookstore.consoleapp\\models\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96D7F2D3-A4B0-472E-9875-66AFD7D924E6}|BookStore.ConsoleApp\\BookStore.ConsoleApp.csproj|solutionrelative:bookstore.consoleapp\\models\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96D7F2D3-A4B0-472E-9875-66AFD7D924E6}|BookStore.ConsoleApp\\BookStore.ConsoleApp.csproj|d:\\depi-r4\\tasks\\task 2\\bookstore.consoleapp\\bookstore.consoleapp\\models\\paperbackbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96D7F2D3-A4B0-472E-9875-66AFD7D924E6}|BookStore.ConsoleApp\\BookStore.ConsoleApp.csproj|solutionrelative:bookstore.consoleapp\\models\\paperbackbook.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96D7F2D3-A4B0-472E-9875-66AFD7D924E6}|BookStore.ConsoleApp\\BookStore.ConsoleApp.csproj|d:\\depi-r4\\tasks\\task 2\\bookstore.consoleapp\\bookstore.consoleapp\\models\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96D7F2D3-A4B0-472E-9875-66AFD7D924E6}|BookStore.ConsoleApp\\BookStore.ConsoleApp.csproj|solutionrelative:bookstore.consoleapp\\models\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{96D7F2D3-A4B0-472E-9875-66AFD7D924E6}|BookStore.ConsoleApp\\BookStore.ConsoleApp.csproj|d:\\depi-r4\\tasks\\task 2\\bookstore.consoleapp\\bookstore.consoleapp\\repositories\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{96D7F2D3-A4B0-472E-9875-66AFD7D924E6}|BookStore.ConsoleApp\\BookStore.ConsoleApp.csproj|solutionrelative:bookstore.consoleapp\\repositories\\irepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BookService.cs",
+              "DocumentMoniker": "D:\\Depi-R4\\Tasks\\Task 2\\BookStore.ConsoleApp\\BookStore.ConsoleApp\\Services\\BookService.cs",
+              "RelativeDocumentMoniker": "BookStore.ConsoleApp\\Services\\BookService.cs",
+              "ToolTip": "D:\\Depi-R4\\Tasks\\Task 2\\BookStore.ConsoleApp\\BookStore.ConsoleApp\\Services\\BookService.cs",
+              "RelativeToolTip": "BookStore.ConsoleApp\\Services\\BookService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T10:16:05.255Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "StockManager.cs",
+              "DocumentMoniker": "D:\\Depi-R4\\Tasks\\Task 2\\BookStore.ConsoleApp\\BookStore.ConsoleApp\\Services\\StockManager.cs",
+              "RelativeDocumentMoniker": "BookStore.ConsoleApp\\Services\\StockManager.cs",
+              "ToolTip": "D:\\Depi-R4\\Tasks\\Task 2\\BookStore.ConsoleApp\\BookStore.ConsoleApp\\Services\\StockManager.cs",
+              "RelativeToolTip": "BookStore.ConsoleApp\\Services\\StockManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T10:15:21.598Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Purchase.cs",
+              "DocumentMoniker": "D:\\Depi-R4\\Tasks\\Task 2\\BookStore.ConsoleApp\\BookStore.ConsoleApp\\Models\\Purchase.cs",
+              "RelativeDocumentMoniker": "BookStore.ConsoleApp\\Models\\Purchase.cs",
+              "ToolTip": "D:\\Depi-R4\\Tasks\\Task 2\\BookStore.ConsoleApp\\BookStore.ConsoleApp\\Models\\Purchase.cs",
+              "RelativeToolTip": "BookStore.ConsoleApp\\Models\\Purchase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T10:12:14.148Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PurchaseItem.cs",
+              "DocumentMoniker": "D:\\Depi-R4\\Tasks\\Task 2\\BookStore.ConsoleApp\\BookStore.ConsoleApp\\Models\\PurchaseItem.cs",
+              "RelativeDocumentMoniker": "BookStore.ConsoleApp\\Models\\PurchaseItem.cs",
+              "ToolTip": "D:\\Depi-R4\\Tasks\\Task 2\\BookStore.ConsoleApp\\BookStore.ConsoleApp\\Models\\PurchaseItem.cs",
+              "RelativeToolTip": "BookStore.ConsoleApp\\Models\\PurchaseItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T10:11:42.075Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Customer.cs",
+              "DocumentMoniker": "D:\\Depi-R4\\Tasks\\Task 2\\BookStore.ConsoleApp\\BookStore.ConsoleApp\\Models\\Customer.cs",
+              "RelativeDocumentMoniker": "BookStore.ConsoleApp\\Models\\Customer.cs",
+              "ToolTip": "D:\\Depi-R4\\Tasks\\Task 2\\BookStore.ConsoleApp\\BookStore.ConsoleApp\\Models\\Customer.cs",
+              "RelativeToolTip": "BookStore.ConsoleApp\\Models\\Customer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T10:11:20.361Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "PaperbackBook.cs",
+              "DocumentMoniker": "D:\\Depi-R4\\Tasks\\Task 2\\BookStore.ConsoleApp\\BookStore.ConsoleApp\\Models\\PaperbackBook.cs",
+              "RelativeDocumentMoniker": "BookStore.ConsoleApp\\Models\\PaperbackBook.cs",
+              "ToolTip": "D:\\Depi-R4\\Tasks\\Task 2\\BookStore.ConsoleApp\\BookStore.ConsoleApp\\Models\\PaperbackBook.cs",
+              "RelativeToolTip": "BookStore.ConsoleApp\\Models\\PaperbackBook.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T10:07:40.309Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Book.cs",
+              "DocumentMoniker": "D:\\Depi-R4\\Tasks\\Task 2\\BookStore.ConsoleApp\\BookStore.ConsoleApp\\Models\\Book.cs",
+              "RelativeDocumentMoniker": "BookStore.ConsoleApp\\Models\\Book.cs",
+              "ToolTip": "D:\\Depi-R4\\Tasks\\Task 2\\BookStore.ConsoleApp\\BookStore.ConsoleApp\\Models\\Book.cs",
+              "RelativeToolTip": "BookStore.ConsoleApp\\Models\\Book.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T10:07:04.246Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Depi-R4\\Tasks\\Task 2\\BookStore.ConsoleApp\\BookStore.ConsoleApp\\Program.cs",
+              "RelativeDocumentMoniker": "BookStore.ConsoleApp\\Program.cs",
+              "ToolTip": "D:\\Depi-R4\\Tasks\\Task 2\\BookStore.ConsoleApp\\BookStore.ConsoleApp\\Program.cs",
+              "RelativeToolTip": "BookStore.ConsoleApp\\Program.cs",
+              "ViewState": "AgIAANoAAAAAAAAAAAAAAPcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T09:23:07.576Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "InputValidator.cs",
+              "DocumentMoniker": "D:\\Depi-R4\\Tasks\\Task 2\\BookStore.ConsoleApp\\BookStore.ConsoleApp\\Services\\InputValidator.cs",
+              "RelativeDocumentMoniker": "BookStore.ConsoleApp\\Services\\InputValidator.cs",
+              "ToolTip": "D:\\Depi-R4\\Tasks\\Task 2\\BookStore.ConsoleApp\\BookStore.ConsoleApp\\Services\\InputValidator.cs",
+              "RelativeToolTip": "BookStore.ConsoleApp\\Services\\InputValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T10:16:30.078Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "BaseEntity.cs",
+              "DocumentMoniker": "D:\\Depi-R4\\Tasks\\Task 2\\BookStore.ConsoleApp\\BookStore.ConsoleApp\\Models\\BaseEntity.cs",
+              "RelativeDocumentMoniker": "BookStore.ConsoleApp\\Models\\BaseEntity.cs",
+              "ToolTip": "D:\\Depi-R4\\Tasks\\Task 2\\BookStore.ConsoleApp\\BookStore.ConsoleApp\\Models\\BaseEntity.cs",
+              "RelativeToolTip": "BookStore.ConsoleApp\\Models\\BaseEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T10:06:42.214Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "InMemoryRepository.cs",
+              "DocumentMoniker": "D:\\Depi-R4\\Tasks\\Task 2\\BookStore.ConsoleApp\\BookStore.ConsoleApp\\Repositories\\InMemoryRepository.cs",
+              "RelativeDocumentMoniker": "BookStore.ConsoleApp\\Repositories\\InMemoryRepository.cs",
+              "ToolTip": "D:\\Depi-R4\\Tasks\\Task 2\\BookStore.ConsoleApp\\BookStore.ConsoleApp\\Repositories\\InMemoryRepository.cs",
+              "RelativeToolTip": "BookStore.ConsoleApp\\Repositories\\InMemoryRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T09:27:16.2Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "IRepository.cs",
+              "DocumentMoniker": "D:\\Depi-R4\\Tasks\\Task 2\\BookStore.ConsoleApp\\BookStore.ConsoleApp\\Repositories\\IRepository.cs",
+              "RelativeDocumentMoniker": "BookStore.ConsoleApp\\Repositories\\IRepository.cs",
+              "ToolTip": "D:\\Depi-R4\\Tasks\\Task 2\\BookStore.ConsoleApp\\BookStore.ConsoleApp\\Repositories\\IRepository.cs",
+              "RelativeToolTip": "BookStore.ConsoleApp\\Repositories\\IRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T09:24:17.568Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
