@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Vault - Bookmark Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary mb-4">
+    <div class="container">
+        <a class="navbar-brand text-primary fw-bold" href="index.html"><i class="bi bi-safe2"></i> Link Vault</a>
+        <div class="d-flex align-items-center gap-3 ms-auto">
+            <span class="text-muted small" id="user-email">loading...</span>
+            <button class="btn btn-outline-danger btn-sm" id="logout-btn">Sign Out</button>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <a href="bookmarks.html" class="btn btn-outline-secondary mb-4"><i class="bi bi-arrow-left"></i> Back to Bookmarks</a>
+
+    <div class="card shadow-sm mb-5">
+        <div class="card-body" id="bookmark-details-container">
+            <h3 class="text-center text-muted">Loading details...</h3>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4>Attached Notes</h4>
+        <button class="btn btn-primary btn-sm" id="add-note-btn"><i class="bi bi-plus-lg"></i> Add Note</button>
+    </div>
+
+    <div class="list-group shadow-sm mb-5" id="nested-notes-container">
+        </div>
+</div>
+
+<div class="modal fade" id="nestedNoteModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Note to Bookmark</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <textarea class="form-control" id="nested-note-content" rows="4" placeholder="Type your note here..." required></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="save-nested-note-btn">Save Note</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="app.js"></script>
+<script src="bookmark.js"></script>
+</body>
+</html>
